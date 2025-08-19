@@ -3,12 +3,15 @@ frontend:
   phases:
     preBuild:
       commands:
-        - npm ci   # or npm install
+        - nvm install 20
+        - nvm use 20
+        - node -v
+        - npm ci
     build:
       commands:
         - npm run build
   artifacts:
-    baseDirectory: build
+    baseDirectory: dist   # for Vite builds (NOT "build")
     files:
       - '**/*'
   cache:
